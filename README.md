@@ -54,7 +54,7 @@ Create an https://aws.amazon.com/s3/ account and create a new api access key and
 
 <b>Configuring your node</b>
 <ol>
-<li>Run cd Cosmic_OverlayV2/configurations</li>
+<li>Run: cd Cosmic_OverlayV2/configurations</li>
 <li>Rename the example-node_config.json file in this directory to node_config.json. Replace the ** content with your information<br>
   Note: This configuration should match the .origintrail_noderc file of your actual node. It is required to fill this configuration out for the overlay to function. You cannot change the default directories at this time.
 </li>
