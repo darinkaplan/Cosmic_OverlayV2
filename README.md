@@ -1,6 +1,6 @@
 # Cosmic_Overlay V2 BETA  -- Warp testnet Supported
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-The Cosmic Overlay is a general purpose tool used to streamline the interaction between an OriginTrail node. The overlay is compatible with both V4 single chain and V5 multichain nodes.
+The Cosmic Overlay is a general purpose tool used to streamline the interaction between an OriginTrail node. The overlay is compatible with both V4 single chain and V5 multichain nodes.<b>Only development environment available for BETA</b>
 <br><br>
 Before running the overlay, please read and follow the requirements and configration sections.
 <br>
