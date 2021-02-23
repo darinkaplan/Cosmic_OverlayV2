@@ -34,7 +34,7 @@ Operational wallet must have the following funds for EACH blockchain they are ut
   <li>xDai Backchain: 3k xTRAC and enough ETH to pay for 2 blockchain transactions</li>
   <li>Rinkeby Backchain: 3k aTRAC and enough rinkeby ETH to pay for 2 blockchain transactions</li>
   <li>Kovan Backchain: 3k tTRAC and enough kovan ETH to pay for 2 blockchain transactions</li>
-  </u>
+  </ul>
 <br>
 <b>Required for aws s3 features:</b><br>
 Create an https://aws.amazon.com/s3/ account and create a new api access key and secret if you want to configure the installer to interact with aws s3 storage. 
