@@ -1,0 +1,45 @@
+{
+    "network": {
+        "id": "warp-testnet",
+        "bootstraps": [
+            "https://testnet-warp-do-bootstrap.origin-trail.network:5278/#4ddb6dd5a161b8e1ac788d0b674d2a728fd74f68",
+            "https://testnet-warp-aws-bootstrap.origintrail.network:5278/#b78edd9458c2224925fbce09d5312e82267f57d7"
+        ],
+        "remoteWhitelist": [
+           "*whitelisted IPs here*"
+        ],
+        "hostname": "*server IP here*"
+    },
+    "initial_deposit_amount": "5000000000000000000000",
+    "litigationEnabled": true,
+    "blockchain": {
+        "implementations": [
+            {
+                "blockchain_title": "Ethereum",
+                "network_id": "rinkeby",
+                "identity_filepath": "rinkeby_identity.json",
+                "hub_contract_address": "0x1107BDdDC52a15FA3Dd8d38A6174bBc30fc5714A",
+                "node_wallet_path": "~/wallets/rinkeby.json",
+                "rpc_server_url": "*rinkeby rpc connect here* (infura, alchemy)",
+                "gas_price": "1000000000",
+                "gas_limit": "2000000"
+            },
+            {
+                "blockchain_title": "Ethereum",
+                "network_id": "kovan",
+                "identity_filepath": "kovan_identity.json",
+                "hub_contract_address": "0x8623917Fba97BdfDA15E9a175e248Cd4cC6F6f39",
+                "node_wallet_path": "~/wallets/kovan.json",
+                "rpc_server_url": "*kovan rpc connect here* (infura, alchemy)",
+                "gas_price": "1000000000",
+                "gas_limit": "2000000"
+            }
+        ]
+    },
+    "dc_choose_time": 300000,
+    "autoUpdater": {
+        "enabled": true,
+        "packageJsonUrl": "https://raw.githubusercontent.com/OriginTrail/ot-node/feature/blockchain-service/package.json",
+        "archiveUrl": "https://github.com/OriginTrail/ot-node/archive/feature/blockchain-service.zip"
+    }
+}
