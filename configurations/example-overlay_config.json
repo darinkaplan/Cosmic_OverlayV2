@@ -1,4 +1,5 @@
 {
+      "environment": "development",
       "scripts":{
         "node_name" : "*node name here*",
         "telegram_chat_id" : "*telegram chat id here*",
