@@ -78,6 +78,7 @@ Create an https://aws.amazon.com/s3/ account and create a new api access key and
 
 <b>Optional: If don't want to set up cronjobs on your crontab</b>
 <ol>
+<li>Run: cd Cosmic_OverlayV2/cron-jobs-node</li>
 <li>Run: sudo npm i shelljs</li>
 <li>Run: sudo npm i express</li>
 <li>Run: sudo npm i node-cron</li>
