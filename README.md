@@ -12,7 +12,7 @@ Ethereum: 0x514a264512EB9297aAB63e79b000E0bd26EE0734<br>
 
 <b>--------------------------------------------------------------Requirements:--------------------------------------------------------------------</b>
 
-Install nodejs, npm, jq, curl, docker,and forever
+Install nodejs, npm, jq, curl, docker, and zip
 <ul>
 <li>Run: sudo apt install nodejs -y</li>
 <li>Run: sudo apt install npm -y</li>
