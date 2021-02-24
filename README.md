@@ -93,7 +93,7 @@ Create an https://aws.amazon.com/s3/ account and create a new api access key and
 Note: This will not let start a node if otnode already exists.</li>
 <li>Restore directly from configured aws directory.<br>
 Note: This will not let start a node if otnode already exists or if nothing was downloaded from aws (incorrect config)</li>
-<li>Restore directly from configured aws directory.<br>
+<li>Restore directly from a local backup.<br>
 Note: This will not let start a node if otnode already exists.</li>
 </ol><br>
 
