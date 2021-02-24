@@ -87,7 +87,7 @@ Create an https://aws.amazon.com/s3/ account and create a new api access key and
 </ol>
 
 <b>----------------------------------------------------------------Features:------------------------------------------------------------------</b><br>
-<b>Installer Menu:</b>
+<b>Install Menu:</b>
 <ol>
 <li>Install a brand new node based off of the configuration in the overlay config. <br>
 Note: This will not let start a node if otnode already exists.</li>
