@@ -76,7 +76,7 @@ Create an https://aws.amazon.com/s3/ account and create a new api access key and
 </li>
 </ol>
 
-<b>Optional: If don't ant to set up cronjobs on your crontab</b>
+<b>Optional: If don't want to set up cronjobs on your crontab</b>
 <ol>
 <li>Run: sudo npm i shelljs</li>
 <li>Run: sudo npm i express</li>
