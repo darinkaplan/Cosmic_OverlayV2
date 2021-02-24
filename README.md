@@ -37,7 +37,7 @@ Operational wallet must have the following funds for EACH blockchain they are ut
   </ul>
 <br>
 <b>Required for aws s3 features:</b><br>
-Create an https://aws.amazon.com/s3/ account and create a new api access key and secret if you want to configure the installer to interact with aws s3 storage. 
+Create an https://aws.amazon.com/s3/ account and create a new api access key and secret if you want to configure the overlay to interact with aws s3 storage. 
 <br><br>
 <b>Always</b> check your arangodb compare you arangodb size of a new backup to an old backup before deleting the old backup.<br><br>
 <b>Never</b> delete your backups on aws until you have successfully uploaded a back up from your migrated node AND the arandoDB sizes match.<br><br>
