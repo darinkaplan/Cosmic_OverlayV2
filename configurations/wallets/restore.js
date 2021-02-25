@@ -126,12 +126,9 @@ module.exports ={
           console.log('\x1b[35m',"This may take awhile...");
           await exec(image);
 
-          var mv_rink = 'sudo docker cp /root/OTawsbackup/rinkeby_identity.json otnode:/ot-node/data/rinkeby_identity.json'
-          var mv_kov = 'sudo docker cp /root/OTawsbackup/kovan_identity.json otnode:/ot-node/data/kovan_identity.json'
-
           if (fs.existsSync(__dirname+'/ethereum.json')){
             console.log('\x1b[35m',"Moving Ethereum identity...");
-            var mv_eth= 'sudo docker cp /root/OTawsbackup/ethereum_identity.json otnode:/ot-node/data/ethereum_identity.json'
+            var mv_eth= 'sudo docker cp /root/OTawsbackup/erc725_identity.json otnode:/ot-node/data/erc725_identity.json'
             await exec(mv_eth);
           }else{
 
