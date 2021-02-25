@@ -83,17 +83,17 @@ module.exports ={
         var restore =  "sudo /root/OTRestore/restore.sh --environment=development --backupDir=/root/OTawsbackup"
         var image =  'sudo docker create --log-driver json-file --log-opt max-size=1g --name=otnode --hostname='+node_config.network.hostname+' -p 8900:8900 -p 5278:5278 -p 3000:3000 -e LOGS_LEVEL_DEBUG=1 -e SEND_LOGS=1 -v ~/certs/:/ot-node/certs/ -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc '+kovan+rinkeby+'quay.io/origintrail/otnode-test:feature_blockchain-service'
       }else if(overlay_config.environment == 'testnet'){
-        console.log('testnet');
-        var restore =  "sudo /root/OTRestore/restore.sh --environment=testnet --backupDir=/root/OTawsbackup"
-        var image =  'sudo docker create --log-driver json-file --log-opt max-size=1g --name=otnode --hostname='+node_config.network.hostname+' -p 8900:8900 -p 5278:5278 -p 3000:3000 -e LOGS_LEVEL_DEBUG=1 -e SEND_LOGS=1 -v ~/certs/:/ot-node/certs/ -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc '+kovan+rinkeby+'quay.io/origintrail/otnode-test:feature_blockchain-service'
+        //console.log('testnet');
+        //var restore =  "sudo /root/OTRestore/restore.sh --environment=testnet --backupDir=/root/OTawsbackup"
+        //var image =  'sudo docker create --log-driver json-file --log-opt max-size=1g --name=otnode --hostname='+node_config.network.hostname+' -p 8900:8900 -p 5278:5278 -p 3000:3000 -e LOGS_LEVEL_DEBUG=1 -e SEND_LOGS=1 -v ~/certs/:/ot-node/certs/ -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc '+kovan+rinkeby+'quay.io/origintrail/otnode-test:feature_blockchain-service'
       }else{
-        console.log('mainnet');
-        var restore =  "sudo /root/OTRestore/restore.sh --environment=mainnet --backupDir=/root/OTawsbackup"
-        var image =  'sudo docker create --log-driver json-file --log-opt max-size=1g --name=otnode --hostname='+node_config.network.hostname+' -p 8900:8900 -p 5278:5278 -p 3000:3000 -e LOGS_LEVEL_DEBUG=1 -e SEND_LOGS=1 -v ~/certs/:/ot-node/certs/ -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc '+ethereum+starfleet+xDai+'quay.io/origintrail/otnode-test:feature_blockchain-service'
+        //console.log('mainnet');
+        //var restore =  "sudo /root/OTRestore/restore.sh --environment=mainnet --backupDir=/root/OTawsbackup"
+        //var image =  'sudo docker create --log-driver json-file --log-opt max-size=1g --name=otnode --hostname='+node_config.network.hostname+' -p 8900:8900 -p 5278:5278 -p 3000:3000 -e LOGS_LEVEL_DEBUG=1 -e SEND_LOGS=1 -v ~/certs/:/ot-node/certs/ -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc '+ethereum+starfleet+xDai+'quay.io/origintrail/otnode-test:feature_blockchain-service'
       }
 
       console.log('\x1b[33m',"#################################### WARNING ################################");
-      console.log('\x1b[33m',"You are about to restore your OriginTrail node onto the "+node_config.network.id+" environment.");
+      console.log('\x1b[33m',"You are about to restore your OriginTrail node onto the "+overlay_config.environment+" environment.");
       console.log('\x1b[33m',"Please confirm the above information before confirming the restore.");
       if(ethereum_warn){
         console.log('\x1b[33m',ethereum_warn);
