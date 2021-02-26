@@ -4,11 +4,10 @@ const exec = util.promisify(require('child_process').exec);
 const overlay_config = require('./configurations/overlay_config.json');
 const node_config = require('./configurations/node_config.json');
 const prechecks = require('./scripts/Utility/Pre/checks.js');
-const install = require('./configurations/wallets/install.js');
+const install = require('./scripts/Utility/Node/install.js');
 const node_configure = require('./configurations/configure.js');
-const wallet_configure = require('./configurations/wallets/configure.js');
 const machine = require('./scripts/Utility/Node/machine.js');
-const restore = require('./configurations/wallets/restore.js');
+const restore = require('./scripts/Utility/Node/restore.js');
 const controls_util = require('./scripts/Utility/Post/controls.js');
 const logs_util = require('./scripts/Utility/Post/logs.js');
 const scripts_util = require('./scripts/Utility/Post/scripts.js');
@@ -79,10 +78,6 @@ try{
                          return;
                        }
 
-                       if(await wallet_configure.createconfigs() == 'fail'){
-                         return;
-                       }
-
                        (async () => {
                          console.log('\x1b[33m',"You are about to install a new node.");
                          const response = await prompts({
@@ -119,10 +114,6 @@ try{
                           return;
                         }
 
-                        if(await wallet_configure.createconfigs() == 'fail'){
-                          return;
-                        }
-
                         (async () => {
                           console.log('\x1b[33m',"You are about to restore a node directly from your aws bucket: "+ aws_bucket_filepath+' on '+overlay_config.environment,'\n');
                           const response = await prompts({
@@ -148,10 +139,6 @@ try{
                        }
 
                        if(await node_configure.createconfigs() == 'fail'){
-                         return;
-                       }
-
-                       if(await wallet_configure.createconfigs() == 'fail'){
                          return;
                        }
 

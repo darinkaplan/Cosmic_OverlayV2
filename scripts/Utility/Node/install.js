@@ -2,8 +2,8 @@ const fs = require('fs');
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
 const prompts = require('prompts');
-const overlay_config = require('../overlay_config.json');
-const node_config = require('../node_config.json');
+const overlay_config = require('../../../configurations/overlay_config.json');
+const node_config = require('../../../configurations/node_config.json');
 
 module.exports ={
   newnode: async function install(){
@@ -13,74 +13,53 @@ module.exports ={
       var nodecfg = await exec(nodecfg);
       console.log('\x1b[32m',nodecfg.stdout);
 
+      const implementations = node_config.blockchain.implementations;
+      var chain_count  = Object.keys(implementations).length;
+      var chain_count = Number(chain_count);
 
-      if (fs.existsSync(__dirname+'/ethereum.json')){
-        console.log('\x1b[35m','Ethereum Wallet Configuration:');
-        var eth = 'sudo cat /root/wallets/ethereum.json'
-        var eth = await exec(eth);
+      ethereum_warn = ''
+      mv_eth = ''
 
-        console.log('\x1b[32m',eth.stdout);
-        ethereum = '-v /root/wallets/ethereum.json:/ot-node/data/wallets/ethereum.json '
-        ethereum_warn = 'You are restoring to the Ethereum blockchain.'
-      }else{
-        ethereum = ''
-        ethereum_warn = ''
-      }
+      starfleet_warn = ''
+      mv_sfc = ''
 
-      if(fs.existsSync(__dirname+'/starfleet.json')){
-        console.log('\x1b[35m','Starfleet Wallet Configuration:');
-        var sfc = 'sudo cat /root/wallets/starfleet.json'
-        var sfc = await exec(sfc);
+      xDai_warn = ''
+      mv_xDai = ''
 
-        console.log('\x1b[32m',sfc.stdout);
-        starfleet = '-v /root/wallets/starfleet.json:/ot-node/data/wallets/starfleet.json '
-        starfleet_warn = 'You are restoring to the Stafleet blockchain.'
-      }else{
-        starfleet = ''
-        starfleet_warn = ''
-      }
+      rinkeby_warn = ''
+      mv_rnk = ''
 
-      if(fs.existsSync(__dirname+'/xDai.json')){
-        console.log('\x1b[35m','xDai Wallet Configuration:');
-        var xD = 'sudo cat /root/wallets/xDai.json'
-        var xD = await exec(xD);
+      kovan_warn = ''
+      mv_kov = ''
 
-        console.log('\x1b[32m',xD.stdout);
-        xDai = '-v /root/wallets/xDai.json:/ot-node/data/wallets/xDai.json '
-        xDai_warn = 'You are restoring to the xDai blockchain.'
-      }else{
-        xDai = ''
-        xDai_warn = ''
-      }
+      for(var i = 0; i < chain_count; i++) {
+        var obj = Object.entries(implementations)[i];
+        var obj = obj[1];
+        var blockchain = obj.network_id
 
-      if(fs.existsSync(__dirname+'/rinkeby.json')){
-        console.log('\x1b[35m','Rinkeby Wallet Configuration:');
-        var rink = 'sudo cat /root/wallets/rinkeby.json'
-        var rink = await exec(rink);
+        if (blockchain == 'ethereum'){
+          ethereum_warn = 'You are restoring to the Ethereum blockchain.'
+        }
 
-        console.log('\x1b[32m',rink.stdout);
-        rinkeby = '-v /root/wallets/rinkeby.json:/ot-node/data/wallets/rinkeby.json '
-        rinkeby_warn = 'You are restoring to the Rinkeby blockchain.'
-      }else{
-        rinkeby = ''
-        rinkeby_warn = ''
-      }
+        if (blockchain == 'starfleet'){
+          starfleet_warn = 'You are restoring to the Starfleet blockchain.'
+        }
 
-      if(fs.existsSync(__dirname+'/kovan.json')){
-        console.log('\x1b[35m','Kovan Wallet Configuration:');
-        var kov = 'sudo cat /root/wallets/kovan.json'
-        var kov = await exec(kov);
+        if (blockchain == 'xDai'){
+          xDai_warn = 'You are restoring to the xDai blockchain.'
+        }
 
-        console.log('\x1b[32m',kov.stdout);
-        kovan = '-v /root/wallets/kovan.json:/ot-node/data/wallets/kovan.json '
-        kovan_warn = 'You are restoring to the Kovan blockchain.'
-      }else{
-        kovan = ''
-        kovan_warn = ''
+        if (blockchain == 'rinkeby'){
+          rinkeby_warn = 'You are restoring to the Rinkeby blockchain.'
+        }
+
+        if (blockchain == 'kovan'){
+          kovan_warn = 'You are restoring to the Kovan blockchain.'
+        }
       }
 
       if(overlay_config.environment == 'development'){
-        var install = 'sudo docker run --log-driver json-file --log-opt max-size=1g --name=otnode --hostname='+node_config.network.hostname+' -p 8900:8900 -p 5278:5278 -p 3000:3000 -e LOGS_LEVEL_DEBUG=1 -e SEND_LOGS=1 -v ~/certs/:/ot-node/certs/ -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc '+kovan+rinkeby+'quay.io/origintrail/otnode-test:feature_blockchain-service'
+        var install = 'sudo docker run --log-driver json-file --log-opt max-size=1g --name=otnode --hostname='+node_config.network.hostname+' -p 8900:8900 -p 5278:5278 -p 3000:3000 -e LOGS_LEVEL_DEBUG=1 -e SEND_LOGS=1 -v ~/certs/:/ot-node/certs/ -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc quay.io/origintrail/otnode-test:feature_blockchain-service'
       }else if(overlay_config.environment == 'testnet'){
         //var install = 'sudo docker run --log-driver json-file --log-opt max-size=1g --name=otnode --hostname='+node_config.network.hostname+' -p 8900:8900 -p 5278:5278 -p 3000:3000 -e LOGS_LEVEL_DEBUG=1 -e SEND_LOGS=1 -v ~/certs/:/ot-node/certs/ -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc '+kovan+rinkeby+'quay.io/origintrail/otnode-test:feature_blockchain-service'
       }else{

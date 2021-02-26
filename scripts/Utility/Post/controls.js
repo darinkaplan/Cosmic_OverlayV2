@@ -1,7 +1,6 @@
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
 const node_configure = require('../../../configurations/configure.js');
-const wallet_configure = require('../../../configurations/wallets/configure.js');
 
 module.exports ={
 
@@ -11,10 +10,6 @@ module.exports ={
         return;
       }
 
-      if(await wallet_configure.createconfigs() == 'fail'){
-        return;
-      }
-      
       console.log('\x1b[35m',"Restarting node...");
       var restart = 'sudo docker restart otnode'
       await exec(restart);
@@ -33,9 +28,6 @@ module.exports ={
           return;
         }
 
-        if(await wallet_configure.createconfigs() == 'fail'){
-          return;
-        }
         var start = 'sudo docker start otnode'
         await exec(start);
 
