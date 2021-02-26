@@ -60,14 +60,6 @@ Create an https://aws.amazon.com/s3/ account and create a new api access key and
 </li>
 </ol>
 
-<b>Configuring your wallets</b>
-<ol>
-<li>Run: cd Cosmic_OverlayV2/configurations/wallets</li>
-<li>For each blockchain you want to use, rename the respective .json file in this directory to exclude "example-". Replace the empty content with your information.<br>
-  Note: If you are running on a V4 node then do nothing here. It is required to fill this configuration out for the overlay to function for V5 node. You cannot change the default directories at this time.
-</li>
-</ol>
-
 <b>Configuring your overlay</b>
 <ol>
 <li>Run: cd Cosmic_OverlayV2/configurations</li>
