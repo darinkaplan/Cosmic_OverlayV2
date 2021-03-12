@@ -10,7 +10,7 @@
         ],
         "hostname": "*server IP here*"
     },
-    "initial_deposit_amount": "5000000000000000000000",
+    "initial_deposit_amount": "*initial TRAC deposit here*000000000000000000",
     "litigationEnabled": true,
     "blockchain": {
         "implementations": [
